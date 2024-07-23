@@ -1,0 +1,15 @@
+{
+  "name": "bc17-w4d2-project-hcd",
+  "version": "1.0.0",
+  "description": "1- Open the terminal and check you have node installed by typing 'node -v'\r You should have something similar to 'v.20.15.1'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
