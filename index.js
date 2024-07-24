@@ -4,13 +4,9 @@ import helmet from 'helmet';
 const app = express();
 const port = 3000;
 
-app.use(
-    helmet({
-      XPoweredBy : false,
-    }),
-  );
+app.use(helmet());
 
-app.get('/', (imp, res) =>{
+app.get('/', (req, res) =>{
     res.send('Hello World!');
 })
 
