@@ -1,10 +1,10 @@
 
-import listOfActivities from './activities.js'
+import {listOfActivities} from './activities.js'
 import express from 'express';
 import helmet from 'helmet';
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 app.use(helmet());
 
@@ -16,6 +16,8 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
 
+// const activities = listOfActivities;
+// console.log(activities)
 
 app.get('/activities', async (req, res) => {
   try {
@@ -26,7 +28,9 @@ app.get('/activities', async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      error: "An error occurred while fetching activities"
+      error: "An error occurred while fetching activities",
+      "success" : false,
+      "payload" : null
     });
   }
 });

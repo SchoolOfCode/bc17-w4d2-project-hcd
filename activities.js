@@ -1,4 +1,4 @@
-export default listOfActivities = [
+const listOfActivities = [
     {
         "id": "54321234", 
         "activity_submitted": "1719486190058", // simple Epoc timestamp (Date.now() in JS)
@@ -18,3 +18,4 @@ export default listOfActivities = [
         "activity_duration": "60" 
     } 
     ];
+    export {listOfActivities};
