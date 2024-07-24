@@ -41,10 +41,10 @@ app.get('/activities', async (req, res) => {
   try {
     const activities = await activityList;
     res.status(200).json({
-      "success" : true,
-      "payload" : activities
+    "success" : true,
+    "payload" : activities
     });
-  } catch (error) {
+} catch (error) {
     res.status(500).json({
       error: "An error occurred while fetching activities",
       "success" : false,
@@ -52,6 +52,30 @@ app.get('/activities', async (req, res) => {
     });
   }
 });
+
+app.post('/activities', (req, res) =>{
+
+    const newActivity = req.body.newActivity
+}
+
+)
+
+
+// Create a receive POST request containing Activity type and duration
+
+// Assign time stamp and UUID
+
+// Export activity to internal Json file
+
+// Create error message and an incorrect status identifier if unfilled
+
+
+
+
+
+
+
+
 
 // const activities = listOfActivities;
 // console.log(activities)
