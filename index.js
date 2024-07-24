@@ -53,12 +53,23 @@ app.get('/activities', async (req, res) => {
   }
 });
 
+
 app.post('/activities', (req, res) =>{
 
-    const newActivity = req.body.newActivity
+    const newActivity = req.body.newActivity;
+    if (!newActivity) {
+        res.status(500).json({
+        error: "An error occurred while fetching activities",
+        "success" : false,
+        "payload" : null
+        
+        
+    });
 }
-
-)
+const activities ={
+    ...newActivity
+}
+})
 
 
 // Create a receive POST request containing Activity type and duration
