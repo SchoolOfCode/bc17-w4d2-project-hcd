@@ -55,20 +55,26 @@ app.get('/activities', async (req, res) => {
 
 
 app.post('/activities', (req, res) =>{
-
     const newActivity = req.body.newActivity;
     if (!newActivity) {
         res.status(500).json({
         error: "An error occurred while fetching activities",
         "success" : false,
         "payload" : null
-        
-        
     });
 }
-const activities ={
-    ...newActivity
+const activity ={
+    ...newActivity,
+    id:uuid4(),
+    activity_submitted:Date.now(),
 }
+activities.push(activity);
+console.log(activity);
+
+res.status(200).json ({
+  "success" : true,
+  "payload" : activity
+})
 })
 
 
