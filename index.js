@@ -3,12 +3,14 @@
 import activityList from './activities.json' with {type:"json"};
 import express from 'express';
 import helmet from 'helmet';
+import { v4 as uuid4 } from 'uuid';
 
 const app = express();
 const port = 8080;
 
 
 app.use(helmet());
+app.use(express.json());
 
 app.get('/', (req, res) =>{
     res.send('Hello World!');
@@ -18,23 +20,6 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
 
-// const activities = listOfActivities;
-// console.log(activities)
-// app.get('/activities', async (req, res) => {
-//   try {
-//     const activities = await listOfActivities();
-//     res.status(200).json({
-//       "success" : true,
-//       "payload" : activities
-//     });
-//   } catch (error) {
-//     res.status(500).json({
-//       error: "An error occurred while fetching activities",
-//       "success" : false,
-//       "payload" : null
-//     });
-//   }
-// });
 
 
 app.get('/activities', async (req, res) => {
@@ -55,10 +40,10 @@ app.get('/activities', async (req, res) => {
 
 
 app.post('/activities', (req, res) =>{
-    const newActivity = req.body.newActivity;
+    const newActivity = req.body;
     if (!newActivity) {
-        res.status(500).json({
-        error: "An error occurred while fetching activities",
+        res.status(400).json({
+        error: "No activity data provided",
         "success" : false,
         "payload" : null
     });
@@ -68,8 +53,9 @@ const activity ={
     id:uuid4(),
     activity_submitted:Date.now(),
 }
-activities.push(activity);
+activityList.push(activity);
 console.log(activity);
+console.log(activityList);
 
 res.status(200).json ({
   "success" : true,
@@ -94,20 +80,3 @@ res.status(200).json ({
 
 
 
-// const activities = listOfActivities;
-// console.log(activities)
-// app.get('/activities', async (req, res) => {
-//   try {
-//     const activities = await listOfActivities();
-//     res.status(200).json({
-//       "success" : true,
-//       "payload" : activities
-//     });
-//   } catch (error) {
-//     res.status(500).json({
-//       error: "An error occurred while fetching activities",
-//       "success" : false,
-//       "payload" : null
-//     });
-//   }
-// });
