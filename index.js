@@ -1,5 +1,3 @@
-
-// import {listOfActivities} from './activities.js'
 import activityList from './activities.json' with {type:"json"};
 import express from 'express';
 import helmet from 'helmet';
@@ -69,21 +67,21 @@ res.status(200).json ({
 
 // DELETE request 
 
-app.delete('/activities/activity_id_here', (req,res) =>{
-  const activityId = req.body;
-  if (activityId===activityList.id){
-    res.status(200).json({
-      error: "Activity Deleted",
-      "success" : true,
-      "payload" : activities
-    })
-  } else{
-    res.status(400).json({
-      error: "No ID provided",
-      "success" : false,
-      "payload" : null})
-  };
-})
+// app.delete('/activities/activity_id_here', (req,res) =>{
+//   const activityId = req.body;
+//   if (activityId===activityList.id){
+//     res.status(200).json({
+//       error: "Activity Deleted",
+//       "success" : true,
+//       "payload" : activities
+//     })
+//   } else{
+//     res.status(400).json({
+//       error: "No ID provided",
+//       "success" : false,
+//       "payload" : null})
+//   };
+// })
 
 
 
