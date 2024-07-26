@@ -12,6 +12,8 @@ const port = 8080;
 app.use(helmet());
 app.use(express.json());
 
+//Hello World test 
+
 app.get('/', (req, res) =>{
     res.send('Hello World!');
 })
@@ -21,6 +23,7 @@ app.listen(port, () => {
 })
 
 
+//GET request 
 
 app.get('/activities', async (req, res) => {
   try {
@@ -38,6 +41,7 @@ app.get('/activities', async (req, res) => {
   }
 });
 
+//POST request
 
 app.post('/activities', (req, res) =>{
     const newActivity = req.body;
@@ -61,16 +65,27 @@ res.status(200).json ({
   "success" : true,
   "payload" : activity
 })
+});
+
+// DELETE request 
+
+app.delete('/activities/activity_id_here', (req,res) =>{
+  const activityId = req.body;
+  if (activityId===id){
+    res.status(200).json({
+      error: "Activity Deleted",
+      "success" : true,
+      "payload" : activities
+    })
+  } else{
+    res.status(400).json({
+      error: "No ID provided",
+      "success" : false,
+      "payload" : null})
+  };
 })
 
 
-// Create a receive POST request containing Activity type and duration
-
-// Assign time stamp and UUID
-
-// Export activity to internal Json file
-
-// Create error message and an incorrect status identifier if unfilled
 
 
 
