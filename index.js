@@ -71,7 +71,7 @@ res.status(200).json ({
 
 app.delete('/activities/activity_id_here', (req,res) =>{
   const activityId = req.body;
-  if (activityId===id){
+  if (activityId===activityList.id){
     res.status(200).json({
       error: "Activity Deleted",
       "success" : true,
