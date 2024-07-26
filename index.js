@@ -67,21 +67,22 @@ res.status(200).json ({
 
 // DELETE request 
 
-// app.delete('/activities/activity_id_here', (req,res) =>{
-//   const activityId = req.body;
-//   if (activityId===activityList.id){
+// app.delete('/activities/activity_id_here', (req, res) => {
+//   const activityId = req.params.activity_id_here;
+//   const activity = activityList.find(activity => activity.id === activityId);
+
+//   if (activity) {
 //     res.status(200).json({
-//       error: "Activity Deleted",
-//       "success" : true,
-//       "payload" : activities
-//     })
-//   } else{
-//     res.status(400).json({
-//       error: "No ID provided",
-//       "success" : false,
-//       "payload" : null})
-//   };
-// })
+//       success: true,
+//       data: activity
+//     });
+//   } else {
+//     res.status(404).json({
+//       success: false,
+//       error: "Activity not found"
+//     });
+//   }
+
 
 
 
